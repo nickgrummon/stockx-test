@@ -1,0 +1,16 @@
+{
+  "name": "stockx-test",
+  "description": "test stockx bid",
+  "version": "1.0.0",
+  "dependencies": {
+    "mocha": "^5.2.0",
+    "puppeteer": "1.7.0"
+  },
+  "scripts": {
+    "test": "mocha --timeout 150000 bidSuite.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nickgrummon/stockx-test.git"
+  }
+}
