@@ -7,7 +7,7 @@
     "puppeteer": "1.7.0"
   },
   "scripts": {
-    "test": "mocha --timeout 150000 bidSuite.js"
+    "test": "mocha --timeout 30000 bidSuite.js"
   },
   "repository": {
     "type": "git",

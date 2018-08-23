@@ -1,8 +1,8 @@
 To run tests:
     Download and install node.js and npm
     Clone stockx-test repo
-    navigate to stockx-test repo in a terminal and run 'npm install'
-    run 'npm run test'
+    navigate to stockx-test repo in a terminal and execute 'npm install'
+    execute 'npm run test'
 
 Test plan bid:
     End to end tests for UI testing:
