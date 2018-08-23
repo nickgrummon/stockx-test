@@ -5,13 +5,17 @@ describe('Demo test bid functionality for stockx', () => {
 var browser, page, pageLoaded;
 
 beforeEach (async () => {
-    // Open browser and use slow mo so you can watch the headful browser work. Remove these params to speed up
-    // test runtime by 533%.
-    browser = await puppeteer.launch({ headless: false, slowMo: 250 });
+    // Open browser and use slow mo so you can watch the headful browser work.
+    // Remove these params to speed up test runtime by 450%.
+    browser = await puppeteer.launch({ headless: false, slowMo: 100});
     // instantiate page object 
     page = await browser.newPage();
     // create promise that can be awaited to confirm load event is fired
     pageLoaded = page.waitForNavigation({'waitUntil': ['load']})
+    loginCredentials = {
+        'email': 'nickgrummon@gmail.com',
+        'password': 'shinigami11.'
+    }
 })
 
 afterEach (() => {
@@ -41,5 +45,15 @@ it('Test that if unauthorized user tries to make a bid, prompt user to auth', as
     assert(await page.waitForSelector('[class="access-wrap signup-wrap"]'));
     assert(await page.waitForSelector('[class="btn btn-facebook"]'))
     assert(await page.waitForSelector('[class="btn btn-twitter"]'))
+    // change to login
+    await page.click('[class="toggle-option "]')
+    // assert login div appears
+    assert(await page.waitForSelector('[id="login"]'))
+    // use my credentials to sign in
+    await page.type('[name="email"]', loginCredentials.email);
+    await page.type('[name="password"]', loginCredentials.password);
+    await page.click('[class="button right-button button button-green"]');
+    // assert payment-options are shown
+    assert(await page.waitForSelector('[class="payment-options"]'));
   });
 });

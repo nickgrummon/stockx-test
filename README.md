@@ -21,7 +21,7 @@ Test plan bid:
             When the user inputs a bid and clicks the next button
 
                 A. Then if the user is not signed in, display interface for auth.
-                    1. When the user either signs up or logs in show payment options.
+                    1. When the user either signs up or logs in show payment options. (This is the use case that will be tested in the demo suite.)
 
 
                 B. Then if the user is signed in then payment options should be displayed.
